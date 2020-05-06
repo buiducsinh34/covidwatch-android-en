@@ -1,8 +1,8 @@
+# Ignore files created by macOS
 .DS_Store
 
 # Built application files
 *.apk
-*.aar
 *.ap_
 *.aab
 
@@ -44,13 +44,15 @@ captures/
 .idea/tasks.xml
 .idea/gradle.xml
 .idea/assetWizardSettings.xml
-.idea/dictionaries
 .idea/libraries
+.idea/vcs.xml
 # Android Studio 3 in .gitignore file.
 .idea/caches
 .idea/modules.xml
 # Comment next line if keeping position of elements in Navigation Editor is relevant for you
 .idea/navEditor.xml
+# Android studio dependency repository cache
+.idea/jarRepositories.xml
 
 # Keystore files
 # Uncomment the following lines if you do not want to check your keystore files in.

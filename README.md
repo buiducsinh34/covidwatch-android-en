@@ -1,38 +1,74 @@
+![](https://github.com/covid19risk/covidwatch-android/workflows/Develop%20Branch%20CI/badge.svg)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=covid19risk_covidwatch-android&metric=alert_status)](https://sonarcloud.io/dashboard?id=covid19risk_covidwatch-android)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 # CovidWatch Android POC
 Android POC for www.covid-watch.org
 
-BLE is a low power protocol with cross-platform OS support for background operation. The app will be able to constantly run, detecting and logging all contact events with other nearby app users.
+## Who are we? What is this app?
 
-The approach currently being investigated utilizes BLE functionality for background advertisement and scanning. Due to different system requirements for Android and iOS, the protocol works differently depending on the operating systems of the devices involved. The key challenges are:
+This repository is focused on the implementation of the Android version of the Covid Watch app. Our goals are to:
+- Allow users to anonymously record interactions with others using the [TCN Protocol](https://github.com/TCNCoalition/tcn-client-android)
+- Notify users if someone they've interacted with in the past 2 weeks indicates they've tested positive for COVID-19 (again, anonymously!)
+- Offer a seamless UX to complete all of the above!
 
-  1) iOS devices acting as peripherals in the background can only be found by centrals that are scanning for their specific service UUID. These peripherals must establish a connection to transfer any data.
-  2) Android devices have an unfixed bug (https://issuetracker.google.com/issues/125138967) where subsequent connections with many devices can cause the bluetooth system to lock up.
+The current version of the Figma we're working towards: https://www.figma.com/file/0uL6s79o21jwUFZz16Dr8b/Covid-Watch---App-v1.8?node-id=0%3A1
 
-The current solution is a hybrid model that is asymmetric for communication between iOS and Android. All devices will simultaneously act as peripherals and centrals, but only some devices will be able to detect others, and only some devices will need to establish a connection to exchange data. 
+## Setup
 
-Android Peripheral
-- Android devices will act as BLE peripherals in the background and they will advertise a service UUID specific to this app.
-- In the advertisement packet they will use the service data field [https://developer.android.com/reference/android/bluetooth/le/AdvertiseData.Builder] to advertise a randomly generated Contact Event Number. 
-- They will log all previously advertised CENs, and periodically update the CEN when the app is woken up for Bluetooth or timer events.
-- Functionality will soon be added for iOS centrals to connect to Android peripherals. During this process the iOS central will transmit a CEN and the Android device will log it.
+Clone this repo from the `develop` branch:
 
-iOS Peripheral
-- iOS devices will act as BLE peripherals in the background and they will advertise a service UUID specific to this app with a readable characteristic exposed. 
-- If a central establishes a connection and requests to read the characteristic field the peripheral will randomly generate a CEN, log it locally, and transmit it to the central.
+```
+git clone git@github.com:covid19risk/covidwatch-android.git
+```
 
-Android Central
-- Android devices will act as BLE centrals in the background and they will scan for the service UUID specific to this app. 
-- When they read an advertisement packet from an Android peripheral they will log the information in the service data field as the CEN. 
-- Android centrals are unable to detect iOS peripherals.
+We are using tracking TCN's project as a submodule for now tracking the develop branch, so don't forget to init and fetch.
 
-iOS Central
-- iOS devices will act as BLE centrals in the background and they will scan for the service UUID specific to this app. 
-- When they read an advertisement packet from an Android peripheral they will log the attached service field as the CEN. 
-- When they read an advertisement packet from an iOS peripheral they will establish a connection and request the characteristic field. They will then log the returned characteristic field as the CEN and disconnect.
-- Functionality will soon be added for iOS centrals to connect to Android peripherals. During this process the iOS central will transmit a CEN and the Android device will log it.
+First time:
 
-Under the current model, Android devices will be able to detect other Android devices and iOS devices will be able to detect all devices. The asymmetry of the model is not ideal, but all phones will be able to locally share a Contact Event Number when in the vicinity of other phones, so the requirements specified in the privacy model are achieved. For Android to Android or iOS to iOS detection, two contact event numbers will likely be generated for each interaction (because each phone acts as both a peripheral and a central). This can be trivially adjusted for in the risk model. 
+```
+$ git submodule update --init --recursive --remote
+```
 
-In an upcoming update, the ability for iOS centrals to write to Android peripherals will be added. This will enable symmetric communication between all device types and enable an updated cryptographic system.
+To Update:
 
+```
+git submodule update --remote
+```
+
+Open the project in Android Studio. Install onto a phone of yours with the `app` configuration, and you're free to explore the app! Its optimal to install on 2 phones as much of the behavior of the app depends on 2 phones interacting.
+
+**Note:** You cannot run this app on an emulator! We are dependent on Bluetooth being on and active, and most standard Android emulators do not have Bluetooth drivers.
+
+## Looking to contribute?
+
+- Run on your own device to explore the UX. Look at the [Figma](https://www.figma.com/file/0uL6s79o21jwUFZz16Dr8b/Covid-Watch---App-v1.8?node-id=0%3A1) for what the UX should look like. If you have any feedback/find any problems, create an issue!
+- Look at https://github.com/orgs/covid19risk/projects/1 for existing issues. If you see something you want to work on, assign yourself to it, set it to in progress, and make a PR to the `develop` branch.
+
+## FAQ
+
+What is the anonymous protocol for communication between phones? How does it work and who designed it?
+
+Covid Watch uses Temporary Contact Numbers, a decentralized, privacy-first contact tracing protocol developed by the [TCN Coalition](https://tcn-coalition.org/). This protocol is built to be extensible, with the goal of providing interoperability between contact tracing applications. You can read more about it on their [Github](https://github.com/TCNCoalition/TCN).
+
+What's this repository vs the other repositories in the covid19risk Organization?
+
+This is the repository for development of the front-facing Android mobile app for Covid Watch, including the UX and tie-ins to the TCN Bluetooth Protocol and backend services. Related repos:
+- [Android Minimal:](https://github.com/covid19risk/covidwatch-android-minimal) Proof of concept pilot app for testing integrations with the bluetooth protocol.
+- [TCN:](https://github.com/TCNCoalition/tcn-client-android) Implementation of bluetooth protocol.
+
+## Contributors
+
+- Madi Myrzabek (@madim)
+- Milen Marinov (@BurningAXE)
+- James Taylor (@jamesjmtaylor)
+- Pavlo (@Apisov)
+- Madhava (@madhavajay)
+- Nitin Kumar (@nkumarcc, nkumarcc@gmail.com)
+- Hayden Raddiford (@haydenridd)
+- Enrico Grillo (@redbasset)
+
+## Join the cause!
+
+Interested in volunteering with Covid Watch? Check out our [get involved page](https://covid-watch.org/collaborate) and send us an email at contact@covid-watch.org!
 

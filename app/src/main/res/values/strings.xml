@@ -1,0 +1,139 @@
+<resources>
+    <string name="app_name">Covid Watch</string>
+    <string name="title_contact_events">Seen Tags</string>
+    <string name="title_my_profile">Settings</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_are_you_sick_question">Notify seen tags?</string>
+    <string name="title_yes">Yes</string>
+    <string name="title_no">No</string>
+    <string name="title_clear">Clear</string>
+    <string name="title_start_logging">Start</string>
+    <string name="title_stop_logging">Stop</string>
+    <string name="preference_file_key">org.covidwatch.android.PREFERENCE_FILE_KEY</string>
+    <string name="preference_last_contact_events_download_date">preference_last_contact_events_download_date</string>
+    <string name="preference_last_temporary_contact_numbers_download_date">preference_last_temporary_contact_numbers_download_date</string>
+    <string name="channel_name">Channel Name</string>
+    <string name="channel_description">Channel Description</string>
+    <string name="notification_current_user_was_exposed">You have been notified</string>
+
+    <!--  FROM THE UX REPO  -->
+    <string name="splash_text">Help your community stay safe, anonymously.</string>
+    <string name="start">Start</string>
+    <string name="grant_location_access">Grant Location Access</string>
+
+    <string name="onboarding_button">Let\'s do this!</string>
+    <string name="onboarding_steps">Protect your privacy and your community with just 3 steps.</string>
+    <string name="onboarding_step1">Turn on Bluetooth.</string>
+    <string name="onboarding_step2">Allow us to send you Push notifications to warn you of potential contact.</string>
+    <string name="onboarding_share">Share</string>
+
+    <string name="share_subj">Secure COVID-19 contact alert app</string>
+    <string name="share_body">I found this privacy-aware COVID-19 app that doesn\'t upload any information.</string>
+
+    <string name="date">Date</string>
+    <string name="datepicker">datePicker</string>
+    <string name="textView" />
+    <string name="disclaimer"><![CDATA[By clicking Report, you acknowledge, understand and further agree to our Privacy Policy and Terms & Conditions]]></string>
+    <string name="ble_location_permission">The permission to get BLE location data is required</string>
+    <string name="foreground_notification_title">Covid Watch is running</string>
+    <string name="foreground_notification_ble_off">Covid Watch needs Bluetooth to be turned on</string>
+    <string name="not_contacted">You have NOT been contacted.</string>
+    <string name="based_on">Based on last 14 days of activity.</string>
+    <string name="we_dont_share">We don\'t share with Big Brother.</string>
+    <string name="we_dont_share_2">We share with each other.</string>
+    <string name="share_text">Help by Sharing</string>
+    <string name="share_sub_text">Ask family and friends to join the Covid Watch Team</string>
+    <string name="self_report">Self Report</string>
+    <string name="self_report_text">Self Report</string>
+
+    <!-- Test Flow -->
+    <string name="question_text">Have you tested positive for COVID-19?</string>
+    <string name="question_date">When did your symptoms start?</string>
+    <string name="not_yet_tested">Not yet tested</string>
+    <string name="tested_positive">Yes, Tested Positive</string>
+    <string name="tested_negative">Not Tested or Negative</string>
+    <string name="continue_button">Continue</string>
+    <string name="report">Report</string>
+    <string name="thanks_for_update">Thanks for the update. You can come back here if you test positive to help keep your community safe.</string>
+    <string name="confirm_results">Please confirm your test results</string>
+    <string name="confirm_results_disclaimer">This report is completely anonymous and the community relies on you to be truthful and responsible. Depending on anonymous interaction logs, other Covid Watch users may get notified to self-quarantine and get tested.</string>
+    <string name="covid_19_test">COVID-19 Test</string>
+    <string name="positive">POSITIVE</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="settings">Settings</string>
+    <string name="test_results">Test Results</string>
+    <string name="how_does_this_work">How does this work?</string>
+    <string name="covid_watch_website">Covid Watch Website</string>
+    <string name="health_guidelines">Health Guidelines</string>
+    <string name="terms_of_use">Terms of Use</string>
+    <string name="privacy_policy">Privacy Policy</string>
+
+    <string name="issues_needs_to_be_resolved">The following issue(s) need to be resolved for the app to work properly</string>
+    <string name="turn_on_bluetooth">Turn on Bluetooth</string>
+    <string name="turn_bluetooth_on">Turn Bluetooth on for this device</string>
+    <string name="allow_location_access">Allow Location Access to this device</string>
+    <string name="turn_on_bluetooth_subtext">Bluetooth is required for this app to work</string>
+    <string name="location_access_on">Location Access On</string>
+
+    <string name="menu_footer_text">A project in collaboration with</string>
+    <string name="stanford_university">Stanford University</string>
+
+    <string name="bluetooth_explanation_subtext">Apps using Bluetooth® Low Energy (BLE) are required to have location access enabled.</string>
+    <string name="bluetooth_explanation_text">We use Bluetooth to anonymously log interactions with other Covid Watch users. Your personal data is always private and never shared.</string>
+    <string name="bluetooth_explanation_title">Privately Connect</string>
+    <string name="logo_image_content_descriptor">Logo image</string>
+    <string name="menu_button_content_descriptor">Menu button</string>
+    <string name="people_bluetooth_connection_content_descriptor">People connecting over bluetooth</string>
+    <string name="female_superhero_content_descriptor">Female superhero</string>
+    <string name="share_the_app">Share the app</string>
+    <string name="text_for_covid_text">Tested for COVID-19?</string>
+    <string name="you_re_all_set_title">You’re all set!</string>
+    <string name="thank_you_text">Thank you for helping protect your communities. You will be notified of potential contact to COVID-19..</string>
+    <string name="welcome_back_title">Welcome Back!</string>
+    <string name="not_detected_text">Covid Watch has not detected exposure to COVID-19. Share the app with family and friends to help your community stay safe.</string>
+    <string name="detected_thank_you_text">Thank you for helping your community stay safe, anonymously.</string>
+    <string name="main_subtext_1">It works best when everyone uses it.</string>
+    <string name="main_subtext_2">Share your result anonymously to help your community stay safe.</string>
+    <string name="contact_alert_text">You may have been in contact with COVID-19</string>
+    <string name="reported_alert_text">You reported that you tested positive for COVID-19</string>
+    <string name="share_intent_text">Help your community stay safe, anonymously:</string>
+    <string name="reported_tested_positive_text">Thank you for helping your community stay safe, anonymously.</string>
+    <string name="covid_title">COVID-19</string>
+    <string name="risk_subtitle">Potential Risk</string>
+    <string name="risk_description">of infection based on your anonymous exposure logs</string>
+    <string name="close_button_content_descriptor">Close button</string>
+    <string name="checkmark_image_content_descriptor">checkmark image</string>
+    <string name="monitor_symptoms">Monitor symptoms</string>
+    <string name="isolate_from_others">Isolate from others</string>
+    <string name="rest_and_take_care">Rest and take care</string>
+    <string name="get_tested_if_advised">Get tested if advised</string>
+    <string name="refer_to_local_agencies">Refer to local agencies for medical advice</string>
+
+    <!-- Exposure notification-->
+    <string name="upload_diagnosis">Upload diagnosis</string>
+    <string name="exposure_title">Exposure</string>
+    <string name="load_exposure_info">Load exposure details</string>
+    <string name="stop">Stop</string>
+    <plurals name="exposure_details">
+        <item quantity="zero">No Recent Messages</item>
+        <item quantity="one">For %d minute, %s distance</item>
+        <item quantity="other">For %d minutes, %s distance</item>
+    </plurals>
+
+    <string name="far_exposure_distance">Far</string>
+    <string name="close_exposure_distance">Close</string>
+    <string name="near_exposure_distance">Near</string>
+    <string name="exposure_summary">Days since last exposure: %d\nMatched keys: %d\nRisk level: %d\n</string>
+    <string name="no_exposure">No Exposure</string>
+    <string name="pha_permission_number">Your test number</string>
+    <string name="upload">Upload</string>
+    <string name="pha_permission_number_dialog_title">Provide test confirmation number</string>
+    <string name="reset_all_data">Clear data</string>
+
+    <string name="notification_title">Possible COVID-19 exposure</string>
+    <string name="notification_message">Someone you were near has tested positive for COVID-19. Tap for more info.</string>
+    <string name="notification_channel_name">Exposure Notification</string>
+    <string name="notification_channel_description">Exposure notification alerts.</string>
+</resources>
